@@ -85,12 +85,12 @@ const startServer = () => {
   // Graceful shutdown
   process.on("SIGTERM", () => {
     console.log("SIGTERM received. Shutting down gracefully");
-    server.close(() => {
-      mongoose.connection.close(false, () => {
-        console.log("MongoDB connection closed");
-        process.exit(0);
-      });
-    });
+    // server.close(() => {
+    //   mongoose.connection.close(
+    //     console.log("MongoDB connection closed");
+    //     process.exit(0);
+    //   });
+    // });
   });
 
   return app;
