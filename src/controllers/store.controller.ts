@@ -82,7 +82,7 @@ class StoreController {
       const { city, state, active } = req.query;
 
       const filter: any = {
-        createdBy: req.user.id, // Only get stores created by the authenticated user
+        // createdBy: req.user.id,
       };
 
       if (city) filter.city = city;
@@ -121,8 +121,10 @@ class StoreController {
 
       const store = await Store.findOne({
         _id: id,
-        createdBy: req.user.id,
+        // createdBy: req.user.id,
       });
+
+      console.log("store----->", store);
 
       if (!store) {
         return res.status(404).json({ message: "Store not found" });
@@ -181,7 +183,7 @@ class StoreController {
       }
 
       const updatedStore = await Store.findOneAndUpdate(
-        { _id: id, createdBy: req.user.id },
+        { _id: id },
         updateData,
         {
           new: true, // Return the updated document
@@ -228,7 +230,7 @@ class StoreController {
       }
 
       const deletedStore = await Store.findOneAndUpdate(
-        { _id: id, createdBy: req.user.id },
+        { _id: id },
         {
           isActive: false,
           updatedAt: new Date(),

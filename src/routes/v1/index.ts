@@ -13,8 +13,8 @@ router.use(AuthMiddleware.authenticateUser);
 
 router.post("/stores", StoreController.createStore);
 router.get("/stores", StoreController.getAllStores);
-router.get("/stores:id", StoreController.getStoreById);
-router.patch("/stores:id", StoreController.updateStore);
-router.delete("/stores:id", StoreController.deleteStore);
+router.get("/stores/:id", StoreController.getStoreById);
+router.patch("/stores/:id", StoreController.updateStore);
+router.delete("/stores/:id", StoreController.deleteStore);
 
 export default router;

@@ -6,6 +6,7 @@
     "start": "node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "build": "tsc",
+    "server": "nodemon src/app",
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "test:watch": "jest --watch"
